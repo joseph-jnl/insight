@@ -38,11 +38,11 @@ class LolSpider(CrawlSpider):
 
         # Save changes
         with open(filename, 'a') as f:
-            s = str(patch[0]) + '\n'
+            s = str(patch[0]) + '|'
             f.write(s)
 
         with open(filename, 'a') as f:
-            s = str(release_date) + '\n'
+            s = str(release_date)
             f.write(s)
 
         changes = response.xpath(
@@ -52,17 +52,28 @@ class LolSpider(CrawlSpider):
         if any("buffs" in s.lower() for s in changes):
             # Buffs
             with open(filename, 'a') as f:
-                s = 'buffs:' + champs[0] + '\n'
+                s = '|' + 'buffs:' + champs[0]
                 f.write(s)
                 change_track += 1
+        else:
+            with open(filename, 'a') as f:
+                s = '|'
+                f.write(s)
+                change_track += 1
+
         if any("nerfs" in s.lower() for s in changes):
             # Nerfs
             with open(filename, 'a') as f:
-                s = 'nerfs:' + champs[change_track] + '\n'
+                s = '|' + 'nerfs:' + champs[change_track]
                 f.write(s)
-
+        else:
+            with open(filename, 'a') as f:
+                s = '|'
+                f.write(s)
+                change_track += 1
+                
         with open(filename, 'a') as f:
-            s = '|\n'
+            s = '\n'
             f.write(s)
         self.log('Saved file %s' % filename)
         print(str(patch[0]))
