@@ -14,7 +14,7 @@ class LolSpider(scrapy.Spider):
         champsf = [val.lower() for sublist in champs for val in sublist]
         
         for champ in champsf:
-            champ_url = start_url + '/' + champ + '/diamond'
+            champ_url = start_url + '/' + champ + '/lcs'
             yield scrapy.Request(url=champ_url, callback=self.parse)
 
     def parse(self, response):
@@ -32,7 +32,7 @@ class LolSpider(scrapy.Spider):
         #date released
         d_release = response.xpath('.//*[@id="mainContent"]/div[1]/div[4]/div/div[1]/text()').extract()
 
-        filename = 'diamond_raw.txt'
+        filename = 'lcs_raw.txt'
 
         with open(filename, 'a') as f:
             s = champ_name + '\n^' + d_pop[0] + '\n^' + d_wr[0] + '\n^' + \
