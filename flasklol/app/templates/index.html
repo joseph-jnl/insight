@@ -1,5 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<style>
+.navbar-default {
+  background-color: #275590;
+  border-color: #2b78c0;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-text {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #ffffff;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #ffffff;
+  background-color: #2b78c0;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #ffffff;
+  background-color: #2b78c0;
+}
+.navbar-default .navbar-toggle {
+  border-color: #2b78c0;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #2b78c0;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #ecf0f1;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+  border-color: #ecf0f1;
+}
+.navbar-default .navbar-link {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #ecf0f1;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #ffffff;
+  }
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #ffffff;
+    background-color: #2b78c0;
+  }
+}
+
+.typeahead,
+.tt-query,
+.tt-hint {
+  width: 396px;
+  height: 60px;
+  padding: 8px 12px;
+  font-size: 24px;
+  line-height: 30px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  outline: none;
+}
+
+.typeahead {
+  background-color: #fff;
+}
+
+.typeahead:focus {
+  border: 2px solid #0097cf;
+}
+
+.tt-query {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.tt-hint {
+  color: #999
+}
+
+.tt-menu {
+  width: 422px;
+  margin: 12px 0;
+  padding: 8px 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
+  -webkit-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+     -moz-box-shadow: 0 5px 10px rgba(0,0,0,.2);
+          box-shadow: 0 5px 10px rgba(0,0,0,.2);
+}
+
+.tt-suggestion {
+  padding: 3px 20px;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.tt-suggestion:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #0097cf;
+}
+
+.tt-suggestion.tt-cursor {
+  color: #fff;
+  background-color: #0097cf;
+
+}
+
+.tt-suggestion p {
+  margin: 0;
+}
+
+.u-hidden {
+  display: none !important;
+}
+
+</style>
+
+
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,13 +158,16 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Catchy Project Name Here</title>
+    <title>Blue Trinket</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../static/css/website.css" rel="stylesheet">
+    
+    <!-- Load c3.css -->
+    <link href="../static/css/c3.min.css" rel="stylesheet" type="text/css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -27,7 +179,7 @@
 
   <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -36,13 +188,13 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Catchy Project Name Here</a>
+          <a class="navbar-brand" href="/index">Blue Trinket</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li class="active"><a href="/index">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -54,16 +206,29 @@
         <h1>League of Legends</h1>
         <p class="lead">Predict incoming nerfs and buffs for champions:</p>
 
-        
-        <div>
-        <form  action="/predict" method="GET">
-          <button type="submit" class="btn btn-default btn-lg">Riot pls</button>
-         </form>
-        </div>
 
-        <div>
-          {{test}}
-        </div>
+ <div id="the-basics">
+<form action="/predict" method="get" name="predict">
+<!-- <input type="hidden" name="champ"> -->
+
+<input class="typeahead" name="champ" type="text" placeholder="Predict Champion">
+<button class="u-hidden" type="submit">blah</button>
+</div>
+</form>
+
+<hr>
+        <h2>Predicted Nerfs</h2>
+      <!-- {{ p_nerfs|safe }} -->
+
+      <div id="chart"></div>
+
+<hr>
+
+
+      <h2>Predicted Buffs</h2>
+      <!-- {{ p_buffs|safe }} -->
+
+      <div id="chart2"></div>
 
       </div>
 
@@ -76,5 +241,264 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../static/js/bootstrap.min.js"></script>
+
+    <!-- Load d3.js and c3.js -->
+    <script src="../static/js/d3.v3.min.js" charset="utf-8"></script>
+    <script src="../static/js/c3.min.js"></script>
+    <script src="../static/js/typeahead.jquery.min.js"></script>
+
+
+
+
+<script>
+var chart = c3.generate({
+    bindto: '#chart',
+    
+    data: {
+      x: 'dates',
+      xFormat: '%Y-%m-%d',
+
+        url: "/static/data/nerfs_index.csv"
+      // url: "nerfs_index.csv" // local testing
+    },
+
+    legend: {
+        position: 'outer-top'
+    },
+
+    axis: {
+
+        x: {
+            type: 'timeseries',
+            tick: {
+                format: '%Y-%m-%d'
+            }
+        },
+
+            y: {
+                label: {
+                    text: 'Probabilty of nerf',
+                    position: 'outer-middle'
+                    // inner-top : default
+                    // inner-middle
+                    // inner-bottom
+                    // outer-top
+                    // outer-middle
+                    // outer-bottom
+                        }
+                }
+          }
+});
+
+var chart2 = c3.generate({
+    bindto: '#chart2',
+
+    data: {
+       x: 'dates',
+       xFormat: '%Y-%m-%d',
+        url: "/static/data/buffs_index.csv" 
+        // url: "buffs_index.csv" //local testing
+    },
+
+    legend: {
+        position: 'outer-top'
+    },
+
+    axis: {
+
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: '%Y-%m-%d'
+                }
+            },
+
+            y: {
+                label: {
+                    text: 'Probabilty of buff',
+                    position: 'outer-middle'
+                    // inner-top : default
+                    // inner-middle
+                    // inner-bottom
+                    // outer-top
+                    // outer-middle
+                    // outer-bottom
+                        }
+                }
+          }  
+
+});
+
+
+var substringMatcher = function(strs) {
+  return function findMatches(q, cb) {
+    var matches, substringRegex;
+
+    // an array that will be populated with substring matches
+    matches = [];
+
+    // regex used to determine if a string contains the substring `q`
+    substrRegex = new RegExp(q, 'i');
+
+    // iterate through the pool of strings and for any string that
+    // contains the substring `q`, add it to the `matches` array
+    $.each(strs, function(i, str) {
+      if (substrRegex.test(str)) {
+        matches.push(str);
+      }
+    });
+
+    cb(matches);
+  };
+};
+
+var champs = ['Aatrox',
+'Ahri',
+'Akali',
+'Alistar',
+'Amumu',
+'Anivia',
+'Annie',
+'AurelionSol',
+'Ashe',
+'Azir',
+'Bard',
+'Blitzcrank',
+'Brand',
+'Braum',
+'Camille',
+'Caitlyn',
+'Cassiopeia',
+'ChoGath',
+'Corki',
+'Darius',
+'Diana',
+'DrMundo',
+'Draven',
+'Ekko',
+'Elise',
+'Evelynn',
+'Ezreal',
+'Fiddlesticks',
+'Fiora',
+'Fizz',
+'Galio',
+'Gangplank',
+'Garen',
+'Gnar',
+'Gragas',
+'Graves',
+'Hecarim',
+'Heimerdinger',
+'Illaoi',
+'Irelia',
+'Ivern',
+'Janna',
+'JarvanIV',
+'Jax',
+'Jayce',
+'Jinx',
+'Jhin',
+'Kalista',
+'Karma',
+'Karthus',
+'Kassadin',
+'Katarina',
+'Kayle',
+'Kennen',
+'KhaZix',
+'Kindred',
+'Kled',
+'KogMaw',
+'LeBlanc',
+'LeeSin',
+'Leona',
+'Lissandra',
+'Lucian',
+'Lulu',
+'Lux',
+'Malphite',
+'Malzahar',
+'Maokai',
+'MasterYi',
+'MissFortune',
+'Mordekaiser',
+'Morgana',
+'Nami',
+'Nasus',
+'Nautilus',
+'Nidalee',
+'Nocturne',
+'Nunu',
+'Olaf',
+'Orianna',
+'Pantheon',
+'Poppy',
+'Quinn',
+'Rammus',
+'RekSai',
+'Renekton',
+'Rengar',
+'Riven',
+'Rumble',
+'Ryze',
+'Sejuani',
+'Shaco',
+'Shen',
+'Shyvana',
+'Singed',
+'Sion',
+'Sivir',
+'Skarner',
+'Sona',
+'Soraka',
+'Swain',
+'Syndra',
+'TahmKench',
+'Talon',
+'Taliyah',
+'Taric',
+'Teemo',
+'Thresh',
+'Tristana',
+'Trundle',
+'Tryndamere',
+'TwistedFate',
+'Twitch',
+'Udyr',
+'Urgot',
+'Varus',
+'Vayne',
+'Veigar',
+'VelKoz',
+'Vi',
+'Viktor',
+'Vladimir',
+'Volibear',
+'Warwick',
+'Wukong',
+'Xerath',
+'XinZhao',
+'Yasuo',
+'Yorick',
+'Zac',
+'Zed',
+'Ziggs',
+'Zilean',
+'Zyra'
+];
+
+$('#the-basics .typeahead').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1
+},
+{
+  name: 'champs',
+  source: substringMatcher(champs)
+});
+</script>
+
+
   </body>
 </html>
