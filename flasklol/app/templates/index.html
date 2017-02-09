@@ -251,6 +251,7 @@
 
 
 <script>
+
 var chart = c3.generate({
     bindto: '#chart',
     
@@ -272,7 +273,11 @@ var chart = c3.generate({
             type: 'timeseries',
             tick: {
                 format: '%Y-%m-%d'
-            }
+            },
+            label: {
+                 text: 'Date',
+                 position: 'outer-center',
+                    }               
         },
 
             y: {
@@ -310,7 +315,12 @@ var chart2 = c3.generate({
                 type: 'timeseries',
                 tick: {
                     format: '%Y-%m-%d'
-                }
+                },
+                
+            label: {
+                 text: 'Date',
+                 position: 'outer-center',
+                    }                   
             },
 
             y: {

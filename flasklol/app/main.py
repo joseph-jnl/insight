@@ -28,6 +28,13 @@ def contact():
 @app.route('/predict', methods=['GET', 'POST'])
 def predict():
     champ = request.args.get('champ', '')
+    nerfs = pd.read_csv('./static/data/graph_nerfs_all.csv')
+    dfn = nerfs[['dates', str.lower(champ)]]
+    dfn.to_csv('./static/data/champn.csv', index=False)
+    buffs = pd.read_csv('./static/data/graph_buffs_all.csv')
+    dfb = buffs[['dates', str.lower(champ)]]
+    dfb.to_csv('./static/data/champb.csv', index=False)
+
     return render_template('predict.html', champ=champ)
 
     # df = pd.read_csv('lolcurrent.csv')
