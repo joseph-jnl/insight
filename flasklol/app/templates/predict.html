@@ -161,6 +161,10 @@
 
 <script>
 
+var nerfdates = {{ xnerf|safe }};
+
+var buffdates = {{ xbuff|safe }};
+
 var chart = c3.generate({
     bindto: '#chart',
     
@@ -208,7 +212,13 @@ var chart = c3.generate({
                     // outer-bottom
                         }
                 }
-          }
+          },
+
+    grid: {
+        x: {
+            lines: nerfdates
+        }
+    }          
 });
 
 var chart2 = c3.generate({
@@ -255,7 +265,12 @@ var chart2 = c3.generate({
                     // outer-bottom
                         }
                 }
-          }  
+          },
+    grid: {
+        x: {
+            lines: buffdates
+        }
+    }               
 
 });
 

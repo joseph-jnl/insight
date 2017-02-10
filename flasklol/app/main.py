@@ -35,7 +35,23 @@ def predict():
     dfb = buffs[['dates', str.lower(champ)]]
     dfb.to_csv('./static/data/champb.csv', index=False)
 
-    return render_template('predict.html', champ=champ)
+    df_changes = pd.read_csv('./static/data/realchanges_all.csv')
+    cn = str.lower(champ)
+    df_bd = df_changes[['date', cn]]
+    df_nerfdates = df_bd[df_bd[cn]=='nerf']
+
+    lnerf = []
+    for index, row in df_nerfdates.iterrows():
+        lnerf.append({'value': row.date, 'text': 'nerf'})
+        
+    df_buffdates = df_bd[df_bd[cn]=='buff']
+
+    lbuff = []
+    for index, row in df_buffdates.iterrows():
+        lbuff.append({'value': row.date, 'text': 'buff'})
+
+    return render_template('predict.html', champ=champ,
+        xnerf=lnerf, xbuff=lbuff)
 
     # df = pd.read_csv('lolcurrent.csv')
     # xgbc = joblib.load('xgbc.dat') 
